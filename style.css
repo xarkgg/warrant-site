@@ -31,6 +31,13 @@ main {
   padding: 4.5rem 1.5rem 5rem;
 }
 
+.mark {
+  display: block;
+  width: 56px;
+  height: 56px;
+  margin: 0 0 1.5rem;
+}
+
 .kicker {
   margin: 0 0 0.75rem;
   font-size: 0.75rem;
