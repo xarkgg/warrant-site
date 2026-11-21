@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Warrant — privacy statement</title>
+    <meta
+      name="description"
+      content="What the Warrant Forge app stores, where it stores it, and what it never does."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <p class="kicker">Warrant · privacy</p>
+      <h1>Privacy</h1>
+      <p class="lede">
+        Warrant stores your data inside your own Atlassian installation. It has no way to send it
+        anywhere else.
+      </p>
+
+      <h2>What it stores</h2>
+      <p>The app keeps four kinds of record, all in Atlassian's hosted storage for your site:</p>
+      <ul class="points">
+        <li>
+          <strong>Warrants</strong> — the operation, the frozen list of issue keys, who requested
+          it, who signed it, when it expires, and how many actions remain.
+        </li>
+        <li>
+          <strong>Ledger entries</strong> — one per change attempted under a warrant, with what was
+          changed and what is needed to reverse it.
+        </li>
+        <li>
+          <strong>The approval queue</strong> — writes that were refused because they fell outside
+          a warrant, waiting for a person to approve or dismiss them.
+        </li>
+        <li>
+          <strong>Nothing else.</strong> No analytics, no telemetry, no crash reporting, no account
+          identifiers beyond the Atlassian account IDs involved in a warrant.
+        </li>
+      </ul>
+
+      <h2>What it reads</h2>
+      <p>
+        To show what a permission would touch, the app reads Jira issues, comments, users and
+        linked work through the scopes it declares: <code>read:jira-work</code>,
+        <code>write:jira-work</code>, <code>read:jira-user</code>, and three read-only Teamwork
+        Graph scopes for Jira work items, external pull requests and Atlassian goals. These reads
+        happen only when a card is opened or a warrant is checked.
+      </p>
+
+      <h2>What it never does</h2>
+      <ul class="points">
+        <li>
+          <strong>It does not send data off Atlassian.</strong> The manifest declares no outbound
+          network permission, so the app has no egress at all. There is no server of ours to send
+          anything to.
+        </li>
+        <li>
+          <strong>It does not retain data after uninstall.</strong> Removing the app removes its
+          Atlassian-hosted storage with it.
+        </li>
+      </ul>
+
+      <h2>Personal data</h2>
+      <p>
+        Atlassian account IDs and display names appear on warrants and ledger entries because a
+        record of who granted authority is the point of the product. No email addresses, no IP
+        addresses and no content beyond what Jira already holds are collected.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Questions about this statement:
+        <a href="https://github.com/xarkgg/warrant-site/issues">open an issue</a>.
+      </p>
+
+      <h2>Status</h2>
+      <p>
+        Warrant is a hackathon entry built for Codegeist 2026 and is not a listed or supported
+        Atlassian Marketplace product. This statement describes the app as it is deployed today; it
+        will be updated here if that changes.
+      </p>
+
+      <footer>
+        <p>
+          <a href="index.html">Warrant</a> ·
+          <a href="https://github.com/xarkgg/warrant-site/issues">Support</a>
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>

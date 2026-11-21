@@ -1,0 +1,174 @@
+:root {
+  --ground: #f7f8f9;
+  --raised: #ffffff;
+  --ink: #1d2125;
+  --ink2: #44546f;
+  --ink3: #626f86;
+  --line: #dcdfe4;
+  --accent: #0c66e4;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font: 400 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", sans-serif;
+}
+
+main {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 5rem;
+}
+
+.kicker {
+  margin: 0 0 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink3);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.75rem, 9vw, 4.25rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+
+.lede {
+  margin: 1.1rem 0 2.25rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--accent);
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: var(--ink2);
+}
+
+h2 {
+  margin: 2.75rem 0 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink3);
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 2px;
+}
+
+code {
+  font-family: var(--mono);
+  font-size: 0.85em;
+  background: #e9edf2;
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
+.points,
+.steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.points li,
+.steps li {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.steps li {
+  counter-increment: step;
+}
+
+.steps li::before {
+  content: counter(step);
+  display: inline-block;
+  width: 1.6rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--ink3);
+}
+
+.steps li span {
+  font-weight: 600;
+}
+
+ol.steps {
+  counter-reset: step;
+}
+
+.install-line {
+  margin: 1.4rem 0 0.9rem;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.7rem 1.25rem;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.button[href="#install"] {
+  background: var(--raised);
+  border-color: var(--line);
+  color: var(--ink3);
+  font-weight: 400;
+}
+
+.small {
+  font-size: 0.9rem;
+  color: var(--ink2);
+}
+
+footer {
+  margin-top: 4rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem;
+  color: var(--ink3);
+}
+
+footer p {
+  margin: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ground: #17181a;
+    --raised: #1f2124;
+    --ink: #e7e9ec;
+    --ink2: #b9bfc8;
+    --ink3: #8e96a1;
+    --line: #2c2f34;
+    --accent: #6aa1f7;
+  }
+
+  code {
+    background: #24272b;
+  }
+}

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Warrant — scoped authority for agents in Jira</title>
+    <meta
+      name="description"
+      content="Warrant gives an AI agent permission to change specific Jira issues for a limited time, decided by a human, enforced at the write, and reversible afterwards."
+    />
+    <meta property="og:title" content="Warrant — scoped authority for agents in Jira" />
+    <meta
+      property="og:description"
+      content="An agent can already edit Jira. What it cannot do is prove it was allowed to."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <p class="kicker">Forge app for Jira · Codegeist 2026</p>
+      <h1>Warrant</h1>
+      <p class="lede">
+        An agent can already edit Jira. What it cannot do is prove it was allowed to.
+      </p>
+
+      <p>
+        Every tool that hands work to a model hits the same wall: permission is all or nothing.
+        Grant it and you have given a model your whole backlog. Withhold it and the agent can
+        only suggest.
+      </p>
+      <p>
+        Warrant makes permission an object. An agent asks for a <em>warrant</em>: a named
+        operation, a frozen list of issue keys, a ceiling on actions, and an expiry. A person
+        sees what it would touch before signing. A grant can be narrowed, never widened.
+      </p>
+
+      <h2>What makes it different</h2>
+      <ul class="points">
+        <li>
+          <strong>A frozen list, never a query.</strong> A JQL query can resolve to different
+          issues tomorrow. A warrant names the keys, so what was approved is what runs.
+        </li>
+        <li>
+          <strong>Enforced where the write happens.</strong> Every change goes through one
+          action handler. A write outside the warrant is refused there — not by the model's
+          good behaviour.
+        </li>
+        <li>
+          <strong>A refusal is an event.</strong> It is recorded, it is queued for a person, and
+          that person can approve the single change and take it back.
+        </li>
+        <li>
+          <strong>Expiry is read from the clock.</strong> Nothing sweeps expired warrants, so
+          nothing can forget to.
+        </li>
+      </ul>
+
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li><span>Ask.</span> The agent requests a warrant for an operation and a list of issues.</li>
+        <li><span>See.</span> The card shows what the permission would touch — linked pull requests, comments, goals, blockers — read live from Jira and Teamwork Graph.</li>
+        <li><span>Sign.</span> A human narrows the list or the ceiling and signs. It cannot be widened afterwards.</li>
+        <li><span>Run.</span> Covered writes execute normally and land in one ledger, each with what is needed to reverse it.</li>
+        <li><span>Refuse.</span> Anything outside the warrant is refused with a reason and waits for a person.</li>
+      </ol>
+
+      <h2 id="install">Install</h2>
+      <p>
+        Warrant is a Forge app, distributed by installation link rather than the Atlassian
+        Marketplace.
+      </p>
+      <p class="install-line">
+        <a class="button" id="install-link" href="#install">Installation link not published yet</a>
+      </p>
+      <p class="small">
+        You need to be a site or app administrator on a Jira Cloud site. The app asks for
+        <code>read:jira-work</code>, <code>write:jira-work</code>, <code>read:jira-user</code>,
+        <code>storage:app</code>, and three read-only Teamwork Graph scopes. It is free and
+        unlicensed.
+      </p>
+
+      <h2>What it stores</h2>
+      <p>
+        Warrants, ledger entries and the approval queue are kept in Atlassian's hosted storage for
+        your own installation. The app declares no outbound network permission, so it cannot send
+        anything to us or to anyone else. See the <a href="privacy.html">privacy statement</a>.
+      </p>
+
+      <h2>Support</h2>
+      <p>
+        Questions, bugs and feature requests:
+        <a href="https://github.com/xarkgg/warrant-site/issues">open an issue</a>.
+      </p>
+
+      <h2>Honest limits</h2>
+      <ul class="points">
+        <li>Built for Jira Cloud only, on Forge. No Data Center.</li>
+        <li>Three operations today: transition, comment, assign.</li>
+        <li>Not on the Marketplace, so there is no listing, no billing and no review ticket.</li>
+        <li>It is a hackathon entry. Treat it as a working demonstration, not a supported product.</li>
+      </ul>
+
+      <footer>
+        <p>
+          Warrant · <a href="privacy.html">Privacy</a> ·
+          <a href="https://github.com/xarkgg/warrant-site/issues">Support</a>
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>
