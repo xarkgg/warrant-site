@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Warrant — scoped authority for agents in Jira</title>
+    <title>Warrant: scoped authority for agents in Jira</title>
     <meta
       name="description"
       content="Warrant gives an AI agent permission to change specific Jira issues for a limited time, decided by a human, enforced at the write, and reversible afterwards."
     />
-    <meta property="og:title" content="Warrant — scoped authority for agents in Jira" />
+    <meta property="og:title" content="Warrant: scoped authority for agents in Jira" />
     <meta
       property="og:description"
-      content="An agent can already edit Jira. What it cannot do is prove it was allowed to."
+      content="An agent can already edit Jira. Warrant is how it proves it was allowed to."
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://xarkgg.github.io/warrant-site/og.png" />
@@ -29,7 +29,7 @@
       <p class="kicker">Forge app for Jira · Codegeist 2026</p>
       <h1>Warrant</h1>
       <p class="lede">
-        An agent can already edit Jira. What it cannot do is prove it was allowed to.
+        An agent can already edit Jira. Warrant is how it proves it was allowed to.
       </p>
 
       <p>
@@ -51,7 +51,7 @@
         </li>
         <li>
           <strong>Enforced where the write happens.</strong> Every change goes through one
-          action handler. A write outside the warrant is refused there — not by the model's
+          action handler. A write outside the warrant is refused there, not by the model's
           good behaviour.
         </li>
         <li>
@@ -67,7 +67,7 @@
       <h2>How it works</h2>
       <ol class="steps">
         <li><span>Ask.</span> The agent requests a warrant for an operation and a list of issues.</li>
-        <li><span>See.</span> The card shows what the permission would touch — linked pull requests, comments, goals, blockers — read live from Jira and Teamwork Graph.</li>
+        <li><span>See.</span> The card shows what the permission would touch, read live from Jira and Teamwork Graph: linked pull requests, comments, goals and blockers.</li>
         <li><span>Sign.</span> A human narrows the list or the ceiling and signs. It cannot be widened afterwards.</li>
         <li><span>Run.</span> Covered writes execute normally and land in one ledger, each with what is needed to reverse it.</li>
         <li><span>Refuse.</span> Anything outside the warrant is refused with a reason and waits for a person.</li>
