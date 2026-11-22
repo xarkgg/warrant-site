@@ -163,6 +163,43 @@ ol.steps {
   vertical-align: -0.12em;
 }
 
+.status-plate {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55rem;
+  background: #141519;
+  border-radius: 18px;
+  padding: 1.5rem 1rem;
+  margin: 0 0 0.9rem;
+  box-shadow: 0 1px 3px rgba(9, 30, 66, 0.12), 0 0 1px rgba(9, 30, 66, 0.3);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.95rem;
+  border-radius: 999px;
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--c);
+  background: var(--cbg);
+  border: 1px solid var(--cbr);
+}
+
+.pill svg {
+  width: 1.15em;
+  height: 1.15em;
+}
+
+.pill-requested { --c: #c084fc; --cbg: rgba(139, 92, 246, 0.18); --cbr: rgba(139, 92, 246, 0.45); }
+.pill-active    { --c: #4dabf7; --cbg: rgba(77, 171, 247, 0.15); --cbr: rgba(77, 171, 247, 0.45); }
+.pill-exhausted { --c: #f8d032; --cbg: rgba(248, 208, 50, 0.13); --cbr: rgba(248, 208, 50, 0.45); }
+.pill-expired   { --c: #9aa2ad; --cbg: rgba(154, 162, 173, 0.14); --cbr: rgba(154, 162, 173, 0.4); }
+.pill-revoked   { --c: #fb6f7f; --cbg: rgba(250, 82, 82, 0.15); --cbr: rgba(250, 82, 82, 0.45); }
+
 .small {
   font-size: 0.9rem;
   color: var(--ink2);
@@ -223,6 +260,12 @@ footer p {
 
   code {
     background: #24272b;
+  }
+
+  .status-plate {
+    background: var(--raised);
+    border: 1px solid var(--line);
+    box-shadow: none;
   }
 
   @supports ((-webkit-background-clip: text) or (background-clip: text)) {
