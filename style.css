@@ -5,7 +5,11 @@
   --ink2: #44546f;
   --ink3: #626f86;
   --line: #dcdfe4;
-  --accent: #0c66e4;
+  --violet: #6d28d9;
+  --vivid: #7438eb;
+  --gold: #f8d032;
+  --gold-ink: #8a5a00;
+  --accent: var(--violet);
   --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 }
 
@@ -44,7 +48,7 @@ main {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink3);
+  color: var(--gold-ink);
 }
 
 h1 {
@@ -55,10 +59,19 @@ h1 {
   line-height: 1;
 }
 
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  h1 {
+    background: linear-gradient(105deg, #4c1d95 0%, var(--vivid) 55%, var(--gold) 135%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
 .lede {
   margin: 1.1rem 0 2.25rem;
   padding-left: 1rem;
-  border-left: 3px solid var(--accent);
+  border-left: 3px solid var(--gold);
   font-size: 1.25rem;
   line-height: 1.5;
   color: var(--ink2);
@@ -132,16 +145,22 @@ ol.steps {
 .button {
   display: inline-block;
   padding: 0.7rem 1.25rem;
-  border: 1px solid var(--accent);
+  border: 1px solid var(--violet);
   border-radius: 6px;
-  background: var(--accent);
+  background: linear-gradient(135deg, var(--vivid), #4c1d95);
   color: #fff;
   font-weight: 600;
   text-decoration: none;
 }
 
 .button:hover {
-  filter: brightness(0.92);
+  filter: brightness(1.12);
+}
+
+.bic {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.12em;
 }
 
 .small {
@@ -153,12 +172,38 @@ footer {
   margin-top: 4rem;
   padding-top: 1.25rem;
   border-top: 1px solid var(--line);
+  border-image: linear-gradient(90deg, var(--vivid), var(--gold)) 1;
   font-size: 0.85rem;
   color: var(--ink3);
 }
 
 footer p {
   margin: 0;
+}
+
+.badges {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 1.1rem;
+}
+
+.badges-note {
+  margin: 0 0 0.9rem;
+  text-align: center;
+}
+
+@media (max-width: 360px) {
+  .badges {
+    gap: 0.25rem;
+  }
+  .badges img:nth-child(1) { width: 32px; height: 32px; }
+  .badges img:nth-child(2) { width: 35px; height: 35px; }
+  .badges img:nth-child(3) { width: 38px; height: 38px; }
+  .badges img:nth-child(4) { width: 42px; height: 42px; }
+  .badges img:nth-child(5) { width: 46px; height: 46px; }
+  .badges img:nth-child(6) { width: 52px; height: 52px; }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -169,10 +214,20 @@ footer p {
     --ink2: #b9bfc8;
     --ink3: #8e96a1;
     --line: #2c2f34;
-    --accent: #6aa1f7;
+    --violet: #b79bfa;
+    --vivid: #8b5cf6;
+    --gold: #f8d032;
+    --gold-ink: #f8d032;
+    --accent: var(--violet);
   }
 
   code {
     background: #24272b;
+  }
+
+  @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+    h1 {
+      background: linear-gradient(105deg, #ede9fe 0%, #b79bfa 30%, #8b5cf6 68%, var(--gold) 135%);
+    }
   }
 }
